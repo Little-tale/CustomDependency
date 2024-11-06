@@ -8,12 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @CustomDependency(\.TEST_STRUCT) var test
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Button {
+                test.testPrint()
+            } label: {
+                Text("Hello, world!")
+            }
         }
         .padding()
     }
